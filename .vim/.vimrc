@@ -31,6 +31,8 @@ set autowrite
 set hidden
 " Enable mouse usage (all modes)
 set mouse=a
+" Normal backspace
+set backspace=indent,eol,start
 
 "----------------------------------------------------------
 " Other Configs
@@ -79,6 +81,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vividchalk'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " Clang format
@@ -104,6 +107,12 @@ if has('gui_running')
     set guioptions-=T
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-    " Orange with black highlight
-    "hi Search guibg=orange guifg=black
+    if &diff
+        colorscheme base16-bright
+    else
+        " Colorscheme
+        colorscheme vividchalk
+        " Orange with black highlight
+        hi Search guibg=orange guifg=black
+    endif
 endif
