@@ -33,6 +33,8 @@ set hidden
 set mouse=a
 " Normal backspace
 set backspace=indent,eol,start
+" Only show status line if there is more that one window open
+set laststatus=1
 
 "----------------------------------------------------------
 " Other Configs
@@ -78,10 +80,10 @@ nnoremap <S-Tab> :bprevious<CR>
 " vim-plug
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vividchalk'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " Clang format
@@ -90,11 +92,6 @@ map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 " Vim Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts=1
-"let g:airline_theme='powerlineish'
-
-" Colorscheme
-colorscheme vividchalk
 
 "----------------------------------------------------------
 " Application configs
@@ -107,12 +104,16 @@ if has('gui_running')
     set guioptions-=T
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    let g:airline_powerline_fonts=1
     if &diff
         colorscheme base16-bright
     else
-        " Colorscheme
         colorscheme vividchalk
-        " Orange with black highlight
-        hi Search guibg=orange guifg=black
     endif
+    hi Search guibg=orange guifg=black
+else
+    let g:airline_symbols_ascii = 1
+    set t_Co=256
+    colorscheme vividchalk
+    hi Search ctermbg=214 ctermfg=black
 endif
