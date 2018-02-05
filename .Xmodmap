@@ -1,0 +1,12 @@
+! Disable capslock and use it as mode switch
+clear Lock 
+keycode 66 = Mode_switch
+
+! caps + hjkl = arrow keys
+keysym h = h H Left Left NoSymbol NoSymbol
+keysym j = j J Down Down NoSymbol NoSymbol
+keysym k = k K Up Up NoSymbol NoSymbol
+keysym l = l L Right Right lstroke Lstroke
+!keysym semicolon = semicolon colon Home Home NoSymbol NoSymbol
+!keysym period = period greater End End NoSymbol NoSymbol
+!keysym dead_acute = dead_acute dead_diaeresis Prior Prior NoSymbol NoSymbol
