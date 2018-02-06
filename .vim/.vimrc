@@ -54,10 +54,17 @@ set tags=/usr/include/tags,tags
 " A comma separated list of word list names.
 "set spelllang=pt
 set spelllang=en
+" Config :grep
+let &grepprg='grep -rn --exclude-dir=.git --exclude-dir=build --exclude=tags --exclude=\*.{swp,o}'
+" Automatically open quickfix window
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 "----------------------------------------------------------
 " Maps
 "----------------------------------------------------------
+" Map return from tag to 't'
+noremap t <c-t>
 " Toggle spell check
 nmap \s :set spell!<CR>
 " Toggle line numbers
