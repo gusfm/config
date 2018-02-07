@@ -56,9 +56,10 @@ set tags=/usr/include/tags,tags
 set spelllang=en
 " Config :grep
 let &grepprg='grep -rn --exclude-dir=.git --exclude-dir=build --exclude=tags --exclude=\*.{swp,o}'
-" Automatically open quickfix window
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+" Create the Rgrep command
+command! -nargs=+ Rgrep execute 'silent grep! <args>' | botright copen | redraw!
+" Search for word under cursor
+nnoremap gr :Rgrep <cword><CR>
 
 "----------------------------------------------------------
 " Maps
