@@ -12,3 +12,4 @@ IncludeCategories:
     Priority:        3
 PointerAlignment: Right
 AlignEscapedNewlinesLeft: true
+IndentCaseLabels: true
