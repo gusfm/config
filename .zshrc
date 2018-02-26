@@ -19,8 +19,7 @@ compinit
 
 # Completion menu
 zstyle ':completion:*' menu select
-# Aproximate completion
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 # ls colors
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
