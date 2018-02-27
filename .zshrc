@@ -30,6 +30,9 @@ alias gitk='gitk --max-count=500'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
+# Use nvim as man-page viewer
+export MANPAGER="nvim -c 'set ft=man laststatus=0' -"
+
 # Search history when pressing Up or Down
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
