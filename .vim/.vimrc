@@ -94,8 +94,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vividchalk'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'chriskempson/base16-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 call plug#end()
 
 " Clang format
@@ -104,11 +102,6 @@ map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 " Vim Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "----------------------------------------------------------
 " Application configs
