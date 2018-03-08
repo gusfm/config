@@ -31,7 +31,7 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
 # Use nvim as man-page viewer
-export MANPAGER="nvim -c 'set ft=man laststatus=0' -"
+export MANPAGER="nvim --noplugin -c 'set ft=man' -"
 
 # Search history when pressing Up or Down
 autoload -U up-line-or-beginning-search
