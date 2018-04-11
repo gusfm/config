@@ -23,8 +23,8 @@ set showcmd
 set showmatch
 " Incremental search
 set incsearch
-" Automatically read file when it was changed by other program
-set autoread
+" Do not automatically read a file when it was changed by other program
+set noautoread
 " Automatically save before commands like :next and :make
 set autowrite
 " Hide buffers when they are abandoned
