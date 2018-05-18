@@ -35,8 +35,10 @@ set mouse=a
 set backspace=indent,eol,start
 " Only show status line if there is more that one window open
 set laststatus=1
-" Use '*' register for copy operations
-set clipboard=unnamed
+if has('nvim')
+    " Use '*' register for copy operations
+    set clipboard=unnamed
+endif
 
 "----------------------------------------------------------
 " Other Configs
