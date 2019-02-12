@@ -38,6 +38,8 @@ set laststatus=1
 if has('nvim')
     " Use '*' register for copy operations
     set clipboard=unnamed
+    " Shows the effects of a command incrementally
+    set inccommand=nosplit
 endif
 
 "----------------------------------------------------------
