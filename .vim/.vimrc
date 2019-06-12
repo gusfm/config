@@ -95,6 +95,8 @@ nnoremap <S-Tab> :bprevious<CR>
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim'
 Plug 'tpope/vim-vividchalk'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'chriskempson/base16-vim'
@@ -106,6 +108,9 @@ map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
 " Vim Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" vim-gitgutter
+set updatetime=100
 
 "----------------------------------------------------------
 " Application configs
