@@ -117,22 +117,19 @@ set updatetime=100
 "----------------------------------------------------------
 if has('gui_running')
     " Configs for gvim
-    " Remove menu bar
+    " Remove menu bar, toolbar, left and right hand scroll bar
     set guioptions-=m
-    " Remove toolbar
     set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
     let g:airline_powerline_fonts=1
-    if &diff
-        colorscheme base16-bright
-    else
-        colorscheme vividchalk
-    endif
+    colorscheme diablo3
     hi Search guibg=orange guifg=black
 else
     let g:airline_symbols_ascii = 1
     set t_Co=256
     colorscheme vividchalk
-    hi Search ctermbg=214 ctermfg=black
+    hi Search ctermbg=214 ctermfg=0
 endif
