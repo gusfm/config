@@ -93,24 +93,14 @@ nnoremap <S-Tab> :bprevious<CR>
 "----------------------------------------------------------
 " vim-plug
 call plug#begin()
-Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim'
-Plug 'tpope/vim-vividchalk'
 Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " Clang format
-map <C-K> :pyf /usr/share/clang/clang-format.py<cr>
+map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
 
-" Vim Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" vim-gitgutter
-set updatetime=100
 
 "----------------------------------------------------------
 " Application configs
@@ -123,13 +113,7 @@ if has('gui_running')
     set guioptions-=r
     set guioptions-=L
     " Set font
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-    let g:airline_powerline_fonts=1
+    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
     colorscheme diablo3
     hi Search guibg=orange guifg=black
-else
-    let g:airline_symbols_ascii = 1
-    set t_Co=256
-    colorscheme vividchalk
-    hi Search ctermbg=214 ctermfg=0
 endif
