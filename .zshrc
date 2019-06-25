@@ -29,6 +29,8 @@ zstyle ':completion:*' list-colors ''
 alias gitk='gitk --max-count=500'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias vim='vim -X'
+alias gvim='gvim -X'
 
 # Use nvim as man-page viewer
 export MANPAGER="nvim --noplugin -c 'set ft=man' -"
