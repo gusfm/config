@@ -41,10 +41,6 @@ if has('nvim')
     " Shows the effects of a command incrementally
     set inccommand=nosplit
 endif
-
-"----------------------------------------------------------
-" Other Configs
-"----------------------------------------------------------
 " Set tab size to 4 spaces
 set shiftwidth=4 tabstop=4
 " Make vim use spaces instead of tabs
@@ -101,19 +97,49 @@ call plug#end()
 " Clang format
 map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
 
+" List buffers on tabline
+function! MyTabLabel(n)
+    let filename = bufname(a:n)
+    if filename == ''
+        return '[No Name]'
+    endif
+    return fnamemodify(filename, ":t")
+endfunction
+
+function! MyTabLine()
+    let s = ''
+    let curbuf = bufnr('%')
+    let lastbuf = bufnr('$')
+    for i in range(1, lastbuf)
+        if buflisted(i)
+            if i == curbuf
+                let s .= '%#TabLineSel#'
+            else
+                let s .= '%#TabLine#'
+            endif
+            let s .= ' %{MyTabLabel(' . i . ')} '
+        endif
+    endfor
+    let s .= '%#TabLineFill#'
+    return s
+endfunction
+
+set tabline=%!MyTabLine()
+set showtabline=2
 
 "----------------------------------------------------------
 " Application configs
 "----------------------------------------------------------
+colorscheme diablo3
 if has('gui_running')
     " Configs for gvim
-    " Remove menu bar, toolbar, left and right hand scroll bar
+    " Remove menu bar, tabs, toolbar, left and right hand scroll bar
     set guioptions-=m
+    set guioptions-=e
     set guioptions-=T
     set guioptions-=r
     set guioptions-=L
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
-    colorscheme diablo3
     hi Search guibg=orange guifg=black
 endif
