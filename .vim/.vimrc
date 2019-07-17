@@ -99,7 +99,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " Clang format
-map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
+map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
 
 
 "----------------------------------------------------------
