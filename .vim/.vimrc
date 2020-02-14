@@ -90,7 +90,6 @@ nnoremap <S-Tab> :bprevious<CR>
 " vim-plug
 call plug#begin()
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-vividchalk'
 call plug#end()
