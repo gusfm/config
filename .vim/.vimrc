@@ -97,6 +97,12 @@ call plug#end()
 " Clang format
 map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
 
+" Indent when saving
+function! ExecuteClangAutoFormat()
+    %py3f /usr/share/vim/addons/syntax/clang-format.py
+endfunction
+autocmd BufWritePre *.c,*.cc,*.h,*.hh call ExecuteClangAutoFormat()
+
 "----------------------------------------------------------
 " Application configs
 "----------------------------------------------------------
