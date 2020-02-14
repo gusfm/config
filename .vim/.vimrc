@@ -92,6 +92,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'tpope/vim-vividchalk'
 call plug#end()
 
 " Clang format
@@ -100,7 +101,7 @@ map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
 "----------------------------------------------------------
 " Application configs
 "----------------------------------------------------------
-colorscheme diablo3
+colorscheme vividchalk
 if has('gui_running')
     " Configs for gvim
     " Remove menu bar, tabs, toolbar, left and right hand scroll bar
@@ -112,4 +113,6 @@ if has('gui_running')
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
     hi Search guibg=orange guifg=black
+else
+    hi Search ctermbg=214 ctermfg=0
 endif
