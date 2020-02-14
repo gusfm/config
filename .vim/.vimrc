@@ -112,6 +112,10 @@ if has('gui_running')
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
     hi Search guibg=orange guifg=black
+    hi DiffAdd      gui=none    guifg=#00f000   guibg=#101010
+    hi DiffChange   gui=none    guifg=NONE      guibg=#101010
+    hi DiffDelete   gui=bold    guifg=#f00000   guibg=#101010
+    hi DiffText     gui=none    guifg=#00f000   guibg=#101010
 else
     hi Search ctermbg=214 ctermfg=0
 endif
