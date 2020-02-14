@@ -97,36 +97,6 @@ call plug#end()
 " Clang format
 map <C-K> :py3f /usr/share/vim/addons/syntax/clang-format.py<cr>
 
-" List buffers on tabline
-function! MyTabLabel(n)
-    let filename = bufname(a:n)
-    if filename == ''
-        return '[No Name]'
-    endif
-    return fnamemodify(filename, ":t")
-endfunction
-
-function! MyTabLine()
-    let s = ''
-    let curbuf = bufnr('%')
-    let lastbuf = bufnr('$')
-    for i in range(1, lastbuf)
-        if buflisted(i)
-            if i == curbuf
-                let s .= '%#TabLineSel#'
-            else
-                let s .= '%#TabLine#'
-            endif
-            let s .= ' %{MyTabLabel(' . i . ')} '
-        endif
-    endfor
-    let s .= '%#TabLineFill#'
-    return s
-endfunction
-
-set tabline=%!MyTabLine()
-set showtabline=2
-
 "----------------------------------------------------------
 " Application configs
 "----------------------------------------------------------
