@@ -39,3 +39,6 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
+export JAVA_PATH="/usr/lib/jvm/jre1.8.0_251/bin"
+export PATH="$PATH:$HOME/bin:$JAVA_PATH"
