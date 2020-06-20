@@ -116,7 +116,7 @@ if has('gui_running')
     set guioptions-=r
     set guioptions-=L
     " Set font
-    set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+    set guifont=DejaVu\ Sans\ Mono\ 11
     hi Search guibg=orange guifg=black
     hi DiffAdd      gui=none    guifg=#00f000   guibg=#101010
     hi DiffChange   gui=none    guifg=NONE      guibg=#101010
