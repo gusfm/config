@@ -83,6 +83,8 @@ noremap k gk
 nnoremap <Tab> :bnext<CR>
 " Previous buffer
 nnoremap <S-Tab> :bprevious<CR>
+" Y on visualmode will yang to + register
+xnoremap Y "+y
 
 "----------------------------------------------------------
 " Plugin configs
