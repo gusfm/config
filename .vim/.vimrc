@@ -56,6 +56,10 @@ set tags=/usr/include/tags,tags
 " A comma separated list of word list names.
 "set spelllang=pt
 set spelllang=en
+" set line number
+set number
+" set location of swp files
+set dir=~/tmp
 " Config :grep
 let &grepprg='grep -rn --exclude-dir=.git --exclude-dir=build --exclude=tags --exclude=\*.{swp,o}'
 " Create the Rgrep command
@@ -71,7 +75,7 @@ noremap t <c-t>
 " Toggle spell check
 nmap \s :set spell!<CR>
 " Toggle line numbers
-nmap \l :setlocal number!<CR>
+nmap \n :setlocal number!<CR>
 " Togle set paste
 nmap \o :set paste!<CR>
 " Toggle scroll bind
@@ -94,6 +98,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'tpope/vim-vividchalk'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " Clang format
@@ -108,7 +113,12 @@ autocmd BufWritePre *.c,*.cc,*.h,*.hh call ExecuteClangAutoFormat()
 "----------------------------------------------------------
 " Application configs
 "----------------------------------------------------------
-colorscheme vividchalk
+if &diff
+    colorscheme gruvbox
+else
+    colorscheme vividchalk
+    hi Search guibg=orange guifg=black
+endif
 if has('gui_running')
     " Configs for gvim
     " Remove menu bar, tabs, toolbar, left and right hand scroll bar
@@ -119,11 +129,4 @@ if has('gui_running')
     set guioptions-=L
     " Set font
     set guifont=DejaVu\ Sans\ Mono\ 11
-    hi Search guibg=orange guifg=black
-    hi DiffAdd      gui=none    guifg=#00f000   guibg=#101010
-    hi DiffChange   gui=none    guifg=NONE      guibg=#101010
-    hi DiffDelete   gui=bold    guifg=#f00000   guibg=#101010
-    hi DiffText     gui=none    guifg=#00f000   guibg=#101010
-else
-    hi Search ctermbg=214 ctermfg=0
 endif
