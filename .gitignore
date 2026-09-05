@@ -2,3 +2,4 @@
 .vim/autoload
 .vim/plugged
 .vim/spell
+nvim/lazy-lock.json
