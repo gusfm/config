@@ -49,5 +49,13 @@ for k in "${terminfo[kcud1]}" '^[[B' '^[OB'; do
 done
 unset k
 
+# Use the socket-activated user ssh-agent (systemctl --user enable ssh-agent.socket).
+# Test for a live socket rather than an unset variable: the Hyprland session
+# exports SSH_AUTH_SOCK from ~/.config/environment.d, so a stale or unexpanded
+# value there would otherwise suppress this.
+if [[ ! -S "$SSH_AUTH_SOCK" && -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
+
 export JAVA_PATH="/usr/lib/jvm/jre1.8.0_251/bin"
 export PATH="$PATH:$HOME/bin:$JAVA_PATH:$HOME/.local/bin"
