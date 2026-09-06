@@ -29,8 +29,7 @@ zstyle ':completion:*' list-colors ''
 alias gitk='gitk --max-count=500'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
-alias vim='vim -X'
-alias gvim='gvim -X'
+alias vim='nvim'
 
 # Search history when pressing Up or Down. The `key` array these bindings used
 # to be guarded on is Debian zsh-newuser-install boilerplate that Arch never
