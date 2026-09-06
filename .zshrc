@@ -61,3 +61,13 @@ fi
 typeset -U path PATH
 path+=("$HOME/bin")
 export PATH
+
+# --- Omarchy shell integration -------------------------------------------
+# Omarchy's own integration lives in $OMARCHY_PATH/default/bash/, which only
+# bash can read (shopt, COMPREPLY, bash completions). These are the zsh
+# equivalents of the parts worth keeping.
+
+# Keep the session's omarchy-launch-editor when it is already exported, and
+# fall back to nvim on a TTY or over SSH, where git would reach for vi.
+export EDITOR="${EDITOR:-nvim}"
+export SUDO_EDITOR="$EDITOR"
