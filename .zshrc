@@ -32,13 +32,22 @@ alias ls='ls --color=auto'
 alias vim='vim -X'
 alias gvim='gvim -X'
 
-# Search history when pressing Up or Down
+# Search history when pressing Up or Down. The `key` array these bindings used
+# to be guarded on is Debian zsh-newuser-install boilerplate that Arch never
+# populates, so bind through terminfo instead, with raw fallbacks covering both
+# normal and application cursor mode.
+zmodload zsh/terminfo
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-[[ -n "${key[Up]}" ]] && bindkey "${key[Up]}" up-line-or-beginning-search
-[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+for k in "${terminfo[kcuu1]}" '^[[A' '^[OA'; do
+    [[ -n "$k" ]] && bindkey "$k" up-line-or-beginning-search
+done
+for k in "${terminfo[kcud1]}" '^[[B' '^[OB'; do
+    [[ -n "$k" ]] && bindkey "$k" down-line-or-beginning-search
+done
+unset k
 
 export JAVA_PATH="/usr/lib/jvm/jre1.8.0_251/bin"
 export PATH="$PATH:$HOME/bin:$JAVA_PATH:$HOME/.local/bin"
