@@ -57,5 +57,8 @@ if [[ ! -S "$SSH_AUTH_SOCK" && -S "$XDG_RUNTIME_DIR/ssh-agent.socket" ]]; then
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 fi
 
-export JAVA_PATH="/usr/lib/jvm/jre1.8.0_251/bin"
-export PATH="$PATH:$HOME/bin:$JAVA_PATH:$HOME/.local/bin"
+# Omarchy's /etc/profile.d/omarchy.sh already appends ~/.local/bin and the mise
+# shims for login shells, and -U keeps nested shells from stacking duplicates.
+typeset -U path PATH
+path+=("$HOME/bin")
+export PATH
