@@ -71,3 +71,25 @@ export PATH
 # fall back to nvim on a TTY or over SSH, where git would reach for vi.
 export EDITOR="${EDITOR:-nvim}"
 export SUDO_EDITOR="$EDITOR"
+
+# Color man pages with bat
+export BAT_THEME=ansi
+export MANROFFOPT="-c"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# Omarchy's bash rc does `set +h` so mise shims are picked up as soon as they
+# are installed; this is the zsh spelling.
+unsetopt hash_cmds
+
+if command -v mise &> /dev/null; then
+    eval "$(mise activate zsh)"
+fi
+
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
+if command -v fzf &> /dev/null; then
+    [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
+    [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
+fi
